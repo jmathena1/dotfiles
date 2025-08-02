@@ -1,0 +1,18 @@
+[submodule ".vim/pack/airline/start/vim-airline-themes"]
+	path = .vim/pack/airline/start/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git
+[submodule ".vim/pack/airline/start/vim-airline"]
+	path = .vim/pack/airline/start/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule ".vim/pack/colors/start/mustang-vim"]
+	path = .vim/pack/colors/start/mustang-vim
+	url = git@github.com:croaker/mustang-vim.git
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = git@github.com:preservim/nerdtree.git
+[submodule ".vim/pack/plugins/start/SimpylFold"]
+	path = .vim/pack/plugins/start/SimpylFold
+	url = git@github.com:tmhedberg/SimpylFold.git
+[submodule ".vim/pack/plugins/start/vim-flake-8"]
+	path = .vim/pack/plugins/start/vim-flake-8
+	url = git@github.com:nvie/vim-flake8.git
