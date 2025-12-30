@@ -6,12 +6,6 @@ Anywho, my `.vim/pack` directory is currently organized into these folders:
 - `colors/`
 - `plugins/`
 
-And here are my current plugins:
-- [mustang-vim](https://github.com/croaker/mustang-vim)
-- [NERDtree](https://github.com/preservim/nerdtree)
-- [SimpylFold](https://github.com/tmhedberg/SimpylFold)
-- [vim-airline](https://github.com/vim-airline/vim-airline)
-- [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-- [vim-flake8](https://github.com/nvie/vim-flake8)
+You can see which plugins I'm using by looking in the `.gitmodules` file at the root of this repo.
 
 I'm using submodules to copy my Vim setup across machines and found this [gist](https://gist.github.com/manasthakur/d4dc9a610884c60d944a4dd97f0b3560) helpful in setting this flow up.
