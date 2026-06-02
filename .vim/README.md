@@ -27,4 +27,7 @@ I'm using submodules to copy my Vim setup across machines and found this [gist](
     - example command: `cp ./vimrc ~/.vimrc`
 - Symlink the vim files to your home directory
     - example command: `ln -sf dotfiles ~/.vim && ln -sf dotfiles/vimrc ~/.vimrc`
+- Make a `tmp` folder in your home directory
+    - the vimrc file this repo uses sets that directory as the swap directory. feel free to change the swap directory to whatever you want.
+
 
