@@ -17,6 +17,7 @@ I'm using submodules to copy my Vim setup across machines and found this [gist](
 - Vim
 - git
 
+### Instructions
 - Clone this repo onto your machine
 - Pull down all the submodules containing Vim plugins
     - example command: `git submodule update --init --recursive`
