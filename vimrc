@@ -26,6 +26,8 @@ set ignorecase
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 set nowrap
+" change regex engine to keep Vim from hanging inside TS files on macos
+set re=2
 " Make line numbering relative
 set rnu
 " Disable compatibility with vi which can cause unexpected issues.

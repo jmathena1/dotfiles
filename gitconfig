@@ -1,0 +1,32 @@
+[pull]
+	rebase = true
+[user]
+	email = <insert-preferred-email-here>
+	name = John Mathena
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	hyperlinks = true
+	side-by-side = true
+[merge]
+	conflictStyle = zdiff3
+[rebase]
+	autosquash = true
+[init]
+	defaultBranch = main
+[commit]
+	verbose = true
+[rerere]
+	enabled = true
+[diff]
+	algorithm = histogram
+[fetch]
+	prune = true
+[log]
+	date = iso
+[push]
+	followtags = true
