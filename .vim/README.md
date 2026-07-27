@@ -18,10 +18,13 @@ I'm using submodules to copy my Vim setup across machines and found this [gist](
 - git
 
 ### Instructions
+
+You can run the setup scripts in the `scripts` directory if you don't want to follow the manual steps below.
+
 - Clone this repo onto your machine
 - Pull down all the submodules containing Vim plugins
     - example command: `git submodule update --init --recursive`
-- Copy the `.vim/pack` path into your home directory
+- Copy the `.vim` path into your home directory
     - example command: `cp -r ./.vim ~/.vim`
 - Copy the `vimrc` file from the project root to your home directory. 
     - example command: `cp ./vimrc ~/.vimrc`
@@ -29,5 +32,8 @@ I'm using submodules to copy my Vim setup across machines and found this [gist](
     - example command: `ln -sf dotfiles ~/.vim && ln -sf dotfiles/vimrc ~/.vimrc`
 - Make a `tmp` folder in your home directory
     - the vimrc file this repo uses sets that directory as the swap directory. feel free to change the swap directory to whatever you want.
+- Make an `undo` folder in your `.vim` directory
+
+
 
 

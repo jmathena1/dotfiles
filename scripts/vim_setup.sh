@@ -14,7 +14,7 @@
 
 set -euo pipefail
 
-REPO_URL="git@github.com:jmathena/dotfiles.git"
+REPO_URL="git@github.com:jmathena/dotfiles.git" # replace with HTTPS if needed
 REPO_DIR="${REPO_DIR:-$HOME/repos/dotfiles}"
 
 log() { printf '==> %s\n' "$1"; }
