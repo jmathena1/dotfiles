@@ -2,7 +2,7 @@
 	rebase = true
 [user]
 	email = <insert-preferred-email-here>
-	name = John Mathena
+	name = <insert-your-full-name-here>
 [core]
 	pager = delta
 [interactive]
