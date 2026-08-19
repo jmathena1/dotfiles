@@ -11,10 +11,11 @@ nnoremap('<C-H>', '<C-W><C-H>')
 
 " Resize split windows using arrow keys by pressing:
 " CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
-noremap <c-up> <c-w>+
-noremap <c-down> <c-w>-
-noremap <c-left> <c-w>>
-noremap <c-right> <c-w><
+noremap <C-S-Up> <c-w>+
+noremap <C-S-Down> <c-w>-
+noremap <C-S-Left> <c-w>>
+noremap <C-S-Right> <c-w><
+
 
 " Set the backslash as the leader key.
 let mapleader = '\'
