@@ -32,7 +32,7 @@ You can run the setup scripts in the `scripts` directory if you don't want to fo
     - example command: `ln -sf dotfiles ~/.vim && ln -sf dotfiles/vimrc ~/.vimrc`
 - Make a `tmp` folder in your home directory
     - the vimrc file this repo uses sets that directory as the swap directory. feel free to change the swap directory to whatever you want.
-- Make an `undo` folder in your `.vim` directory
+- Make a `backup` folder in your `.vim` directory (used for persistent undo history)
 
 
 
