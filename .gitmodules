@@ -16,3 +16,27 @@
 [submodule ".vim/pack/plugins/start/ale"]
 	path = .vim/pack/plugins/start/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule ".config/nvim/pack/plugins/start/fzf-lua"]
+	path = .config/nvim/pack/plugins/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git
+[submodule ".config/nvim/pack/plugins/start/lualine.nvim"]
+	path = .config/nvim/pack/plugins/start/lualine.nvim
+	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule ".config/nvim/pack/plugins/start/mustang-vim"]
+	path = .config/nvim/pack/plugins/start/mustang-vim
+	url = https://github.com/croaker/mustang-vim.git
+[submodule ".config/nvim/pack/plugins/start/neo-tree.nvim"]
+	path = .config/nvim/pack/plugins/start/neo-tree.nvim
+	url = https://github.com/nvim-neo-tree/neo-tree.nvim.git
+[submodule ".config/nvim/pack/plugins/start/nui.nvim"]
+	path = .config/nvim/pack/plugins/start/nui.nvim
+	url = https://github.com/MunifTanjim/nui.nvim.git
+[submodule ".config/nvim/pack/plugins/start/nvim-lspconfig"]
+	path = .config/nvim/pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule ".config/nvim/pack/plugins/start/nvim-web-devicons"]
+	path = .config/nvim/pack/plugins/start/nvim-web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons.git
+[submodule ".config/nvim/pack/plugins/start/plenary.nvim"]
+	path = .config/nvim/pack/plugins/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
