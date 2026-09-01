@@ -25,6 +25,7 @@ set incsearch
 set nowrap
 set number
 set relativenumber
+set signcolumn=yes
 set re=2
 set scrolloff=10
 set showcmd

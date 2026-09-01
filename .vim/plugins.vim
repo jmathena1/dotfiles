@@ -1,33 +1,52 @@
 colorscheme mustang
 
 " ALE {{{
+let g:ale_linters_explicit = 1
 let g:ale_completion_enabled = 1
-let g:ale_fixers = {
-\    'css': ['prettier'],
-\    'html': ['prettier'],
-\    'javascript': ['eslint'],
-\    'python': ['ruff'],
-\    'ruby': ['standardrb', 'rubocop'],
-\    'typescript': ['prettier', 'eslint'],
-\}
 let g:ale_fix_on_save = 1    
+let g:ale_set_balloons = 1
+let g:ale_echo_msg_format = '[%linter%] %code: %%s [%severity%]'
+
+if has('popupwin')
+  let g:ale_floating_preview = 1
+  let g:ale_floating_window_border = ['│', '─', '┌', '┐', '┘', '└', '│', '─']
+endif
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['ruff', 'flake8', 'pylint'],
-\   'ruby': ['standardrb', 'rubocop', 'solargraph']
+\   'typescript': ['eslint'],
+\   'python': ['ruff'],
+\   'ruby': ['standardrb', 'solargraph'],
 \}
-let g:ale_set_balloons=1
-" Tab key behavior: Trigger completion menu OR navigate down the list
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-o>"
-" Shift-Tab key behavior (Optional): Navigate up the list
+
+let g:ale_fixers = {
+\   'css': ['prettier'],
+\   'html': ['prettier'],
+\   'javascript': ['eslint', 'prettier'],
+\   'typescript': ['eslint', 'prettier'],
+\   'python': ['ruff'],
+\   'ruby': ['standardrb'],
+\}
+
+" Smart Tab Autocomplete: complete if after word, otherwise insert regular tab
+function! s:check_backspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_backspace() ? "\<Tab>" : "\<C-x>\<C-o>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
-" Enter key behavior: Accept selected completion item without inserting a newline
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-" Close the popup menu with Esc without leaving Insert mode
 inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-nmap gd :ALEGoToDefinition<CR>
-nmap gr :ALEFindReferences<CR>
-nmap K :ALEHover<CR>
+
+" LSP & Diagnostic Key Mappings
+nmap <silent> gd :ALEGoToDefinition<CR>
+nmap <silent> gr :ALEFindReferences<CR>
+nmap <silent> K  :ALEHover<CR>
+nmap <silent> [d :ALEPreviousWrap<CR>
+nmap <silent> ]d :ALENextWrap<CR>
+nmap <silent> <leader>e :ALEDetail<CR>
+
 set omnifunc=ale#completion#OmniFunc
 " }}}
 
