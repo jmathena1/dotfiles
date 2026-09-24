@@ -13,6 +13,7 @@ if has('popupwin')
 endif
 
 let g:ale_linters = {
+\   'go': ['gopls', 'govet'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \   'python': ['ruff'],
@@ -21,6 +22,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   'css': ['prettier'],
+\   'go': ['gofmt'],
 \   'html': ['prettier'],
 \   'javascript': ['eslint', 'prettier'],
 \   'typescript': ['eslint', 'prettier'],

@@ -61,6 +61,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- 2. Activate desired language servers natively
 vim.lsp.enable({
+  'gopls',
   'lua-language-server',
   'ruby-lsp',
   'solargraph',
@@ -71,7 +72,7 @@ vim.lsp.enable({
 local fmt_group = vim.api.nvim_create_augroup('LspFormatOnSave', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = fmt_group,
-  pattern = { '*.rb', '*.lua', '*.ts', '*.tsx' },
+  pattern = { '*.rb', '*.lua', '*.ts', '*.tsx', '*.go' },
   callback = function()
     vim.lsp.buf.format({ async = false, timeout_ms = 2000 })
   end,
