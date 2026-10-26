@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.lsp.enable({
   'gopls',
   'lua-language-server',
-  'ruby-lsp',
+  'ruby_lsp',
   'solargraph',
   'ts_ls'
 })

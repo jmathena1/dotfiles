@@ -14,10 +14,12 @@ endif
 
 let g:ale_linters = {
 \   'go': ['gopls', 'govet'],
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint'],
+\   'javascript': ['eslint', 'tsserver'],
+\   'javascriptreact': ['eslint', 'tsserver'],
+\   'typescript': ['eslint', 'tsserver'],
+\   'typescriptreact': ['eslint', 'tsserver'],
 \   'python': ['ruff'],
-\   'ruby': ['standardrb', 'solargraph'],
+\   'ruby': ['standardrb', 'solargraph', 'ruby_lsp'],
 \}
 
 let g:ale_fixers = {
@@ -25,10 +27,26 @@ let g:ale_fixers = {
 \   'go': ['gofmt'],
 \   'html': ['prettier'],
 \   'javascript': ['eslint', 'prettier'],
+\   'javascriptreact': ['eslint', 'prettier'],
 \   'typescript': ['eslint', 'prettier'],
+\   'typescriptreact': ['eslint', 'prettier'],
 \   'python': ['ruff'],
 \   'ruby': ['standardrb'],
 \}
+
+let g:ale_go_gopls_init_options = {
+\   'gofumpt': v:false,
+\   'staticcheck': v:true,
+\   'analyses': {'unusedparams': v:true, 'shadow': v:true},
+\}
+
+call ale#linter#Define('ruby', {
+\   'name': 'ruby_lsp',
+\   'lsp': 'stdio',
+\   'executable': 'ruby-lsp',
+\   'command': '%e',
+\   'project_root': function('ale#ruby#FindProjectRoot'),
+\})
 
 " Smart Tab Autocomplete: complete if after word, otherwise insert regular tab
 function! s:check_backspace() abort
@@ -48,6 +66,13 @@ nmap <silent> K  :ALEHover<CR>
 nmap <silent> [d :ALEPreviousWrap<CR>
 nmap <silent> ]d :ALENextWrap<CR>
 nmap <silent> <leader>e :ALEDetail<CR>
+nmap <silent> gi :ALEGoToImplementation<CR>
+nmap <silent> <leader>D :ALEGoToTypeDefinition<CR>
+nmap <silent> <leader>rn :ALERename<CR>
+nmap <silent> <leader>ca :ALECodeAction<CR>
+vmap <silent> <leader>ca :ALECodeAction<CR>
+nmap <silent> <leader>lf :ALEFix<CR>
+nmap <silent> <leader>q :lopen<CR>
 
 set omnifunc=ale#completion#OmniFunc
 " }}}
@@ -117,6 +142,12 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " NERDTREE {{{
 let g:NERDTreeFileLines = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinSize = 30
+augroup nerdtree_follow
+    autocmd!
+    autocmd BufEnter * if &buftype ==# '' && filereadable(expand('%')) && g:NERDTree.IsOpen() | silent! NERDTreeFind | wincmd p | endif
+augroup END
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " Close the tab if NERDTree is the only window remaining in it.
