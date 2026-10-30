@@ -7,7 +7,7 @@
 # - symlinks .vim/pack, the .vim/*.vim files, and the vimrc into place
 #
 # WARNING: this replaces ~/.vimrc and ~/.vim/{pack,general.vim,mappings.vim,
-# plugins.vim} with symlinks into this repo. Any existing versions of those are
+# plugins.vim,lsp.vim} with symlinks into this repo. Any existing versions of those are
 # lost -- back them up first if you care about them. Everything else in ~/.vim
 # is left alone, and the script never deletes anything recursively: if a real
 # directory is in the way it stops and tells you rather than removing it.
@@ -93,7 +93,7 @@ link_vim_files() {
 
   link "$vim_src/pack" "$vim_dest/pack"
 
-  for f in general.vim mappings.vim plugins.vim; do
+  for f in general.vim mappings.vim plugins.vim lsp.vim; do
     link "$vim_src/$f" "$vim_dest/$f"
   done
 

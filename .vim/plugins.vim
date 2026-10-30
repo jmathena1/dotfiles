@@ -1,4 +1,6 @@
 colorscheme mustang
+" mustang doesn't define SignColumn, so Vim's default light grey shows through
+hi! link SignColumn LineNr
 
 " ALE {{{
 let g:ale_linters_explicit = 1
@@ -14,10 +16,10 @@ endif
 
 let g:ale_linters = {
 \   'go': ['gopls', 'govet'],
-\   'javascript': ['eslint', 'tsserver'],
-\   'javascriptreact': ['eslint', 'tsserver'],
-\   'typescript': ['eslint', 'tsserver'],
-\   'typescriptreact': ['eslint', 'tsserver'],
+\   'javascript': ['eslint', 'ts_ls'],
+\   'javascriptreact': ['eslint', 'ts_ls'],
+\   'typescript': ['eslint', 'ts_ls'],
+\   'typescriptreact': ['eslint', 'ts_ls'],
 \   'python': ['ruff'],
 \   'ruby': ['standardrb', 'solargraph', 'ruby_lsp'],
 \}
@@ -30,7 +32,7 @@ let g:ale_fixers = {
 \   'javascriptreact': ['eslint', 'prettier'],
 \   'typescript': ['eslint', 'prettier'],
 \   'typescriptreact': ['eslint', 'prettier'],
-\   'python': ['ruff'],
+\   'python': ['ruff', 'ruff_format'],
 \   'ruby': ['standardrb'],
 \}
 
@@ -47,6 +49,18 @@ call ale#linter#Define('ruby', {
 \   'command': '%e',
 \   'project_root': function('ale#ruby#FindProjectRoot'),
 \})
+
+" One server is shared across these filetypes, so take languageId per buffer
+for s:ft in ['javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+  call ale#linter#Define(s:ft, {
+  \   'name': 'ts_ls',
+  \   'lsp': 'stdio',
+  \   'executable': 'typescript-language-server',
+  \   'command': '%e --stdio',
+  \   'language': {buffer -> getbufvar(buffer, '&filetype')},
+  \   'project_root': function('ale#handlers#tsserver#GetProjectRoot'),
+  \})
+endfor
 
 " Smart Tab Autocomplete: complete if after word, otherwise insert regular tab
 function! s:check_backspace() abort
