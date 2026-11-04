@@ -120,8 +120,10 @@ let g:fzf_action = {
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " Key mappings for FZF
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>fzf :Commands<CR>
+nnoremap <leader>ff  :Files<CR>
+nnoremap <leader>fb  :Buffers<CR>
+nnoremap <leader>fg  :RG<CR>
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
